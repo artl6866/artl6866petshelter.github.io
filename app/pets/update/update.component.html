@@ -1,0 +1,68 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<h2>Edit this Pet</h2>
+
+<ul *ngIf="errors">
+  <li class="errors" *ngFor="let error of errors">{{error}}</li>
+</ul>
+
+<div  *ngIf="updatedPet">  
+
+  <form name="editPetForm" #editPetForm="ngForm" (submit)="updatePet()">
+    <label for="name">Name</label>
+    <input type="text" name="name"
+    required
+    minlength="3"
+    [(ngModel)]="updatedPet.name"
+    #name="ngModel"
+    >
+    <br>
+
+    <label for="type">Type</label>
+    <input type="text" name="type"
+    required
+    minlength="3"
+    [(ngModel)]="updatedPet.type"
+    #type="ngModel"
+    >
+    <br>
+
+    <label for="description">Description</label>
+    <input type="text" name="description"
+    required
+    minlength="3"
+    [(ngModel)]="updatedPet.description"
+    #description="ngModel"
+    >
+    <br>
+
+    <label for="skillone">Skill One</label>
+    <input type="text" name="skillone"
+    [(ngModel)]="updatedPet.skillone"
+    #skillone="ngModel"
+    >
+    <br>
+
+    <label for="skilltwo">Skill Two</label>
+    <input type="text" name="skilltwo"
+    [(ngModel)]="updatedPet.skilltwo"
+    #skilltwo="ngModel"
+    >
+    <br>
+
+    <label for="skillthree">Skill Three</label>
+    <input type="text" name="skillthree"
+    [(ngModel)]="updatedPet.skillthree"
+    #skillthree="ngModel"
+    >
+    <br>
+
+    <a [routerLink]="['/']"><button class="resetButton">Cancel</button></a>
+    <input [disabled]="!editPetForm.valid" id="updateButton" type="submit" value="Edit pet">
+
+  </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

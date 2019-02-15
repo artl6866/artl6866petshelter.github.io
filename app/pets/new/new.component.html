@@ -1,0 +1,67 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+<h2>New Pet</h2>
+<h3>Know of a pet needing a home?</h3>
+<ul *ngIf="errors">
+  <li class="errors" *ngFor="let error of errors">{{error}}</li>
+</ul>
+<form name="newPetForm" #newPetForm="ngForm" (submit)="submitNewPet()">
+
+  <label for="name">Name: </label>
+  <input type="text" name="name"
+  required
+  minlength="3"
+  [(ngModel)]="newPet.name"
+  #name = "ngModel"
+  >
+  <br>
+
+  <label for="type">Type: </label>
+  <input type="text" name="type"
+  required
+  minlength="3"
+  [(ngModel)] = "newPet.type"
+  #type = "ngModel"
+  >
+  <br>
+
+  <label for="description">Description: </label>
+  <input type="text" name="description"
+  required
+  minlength="3"
+  [(ngModel)] = "newPet.description"
+  #description = "ngModel"
+  >
+  <br>
+  <p>Skills</p>
+
+  <label for="skillone">Skill One: </label>
+  <input type="text" name="skillone"
+  [(ngModel)] = "newPet.skillone"
+  #skillone = "ngModel"
+  >
+  <br>
+
+  <label for="skilltwo">Skill Two: </label>
+  <input type="text" name="skilltwo"
+  [(ngModel)] = "newPet.skilltwo"
+  #skilltwo = "ngModel"
+  >
+  <br>
+
+  <label for="skillthree">Skill Three: </label>
+  <input type="text" name="skillthree"
+  [(ngModel)] = "newPet.skillthree"
+  #skillthree = "ngModel"
+  >
+  <br>
+
+  <a [routerLink]="['/']"><button class="resetButton">Cancel</button></a>
+  <input class="createButton" type="submit" value="Add pet">
+
+</form>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
